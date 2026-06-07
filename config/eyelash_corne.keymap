@@ -87,11 +87,11 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // LAYER 0: BASE (WORKMAN ALPHAS + HOME ROW MODS)
+// LAYER 0: BASE (WORKMAN ALPHAS + HOME ROW MODS)
         default_layer {
             display-name = "WORKMAN";
             bindings = <
-&kp TAB    &kp Q        &kp DRV_W    &kp DRV_E   &kp R       &kp T                                                 &kp UP                &kp J       &kp F        &kp U       &kp P        &kp SEMI    &kp BSPC
+&kp TAB    &kp Q        &kp W        &kp E       &kp R       &kp T                                                 &kp UP                &kp J       &kp F        &kp U       &kp P        &kp SEMI    &kp BSPC
 &td0       &hm LGUI A   &hm LALT S   &hm LCTRL T &hm LSHFT H &kp G                                       &kp LEFT  &kp ENTER  &kp RIGHT  &kp Y       &hm RSHFT N  &hm RCTRL E &hm LALT O   &hm RGUI I  &kp SQT
 &kp LCTRL  &kp Z        &kp X        &kp M       &kp C       &kp V       &kp SPACE                         &kp DOWN                        &kp K       &kp L        &kp COMMA   &kp DOT      &kp FSLH    &kp ESC
                                      &mo 3       &mo 1       &mo 2                                                                       &mo 5       &mo 4        &mo 6
