@@ -35,7 +35,7 @@ layers:
   - M
   - C
   - V
-  - '&rsr_vol'
+  - $$mdi:keyboard-space$$
   - $$mdi:arrow-down-bold$$
   - K
   - L
