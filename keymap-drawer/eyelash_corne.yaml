@@ -43,12 +43,12 @@ layers:
   - {t: ., s: '>'}
   - {t: /, s: '?'}
   - $$mdi:keyboard-esc$$
-  - MEDIA
-  - NAV
-  - MOUSE
-  - SYM
-  - NUM
-  - FUN
+  - {t: '$$mdi:keyboard-esc$$', h: MEDIA}
+  - {t: '$$mdi:keyboard-space$$', h: NAV}
+  - {t: '$$mdi:keyboard-tab$$', h: MOUSE}
+  - {t: '$$mdi:keyboard-return$$', h: SYM}
+  - {t: '$$mdi:backspace$$', h: NUM}
+  - {t: '$$mdi:backspace-reverse-outline$$', h: FUN}
   NAV:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
