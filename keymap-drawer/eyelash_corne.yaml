@@ -3,8 +3,8 @@ layers:
   WORKMAN:
   - $$mdi:keyboard-tab$$
   - Q
-  - DRV W
-  - DRV E
+  - W
+  - E
   - R
   - T
   - $$mdi:arrow-up-bold$$
