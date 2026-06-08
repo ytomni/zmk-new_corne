@@ -94,10 +94,10 @@
         base {
             display-name = "WORKMAN";
             bindings = <
-&kp TAB    &kp Q  &kp D  &kp R      &kp W        &kp B                             &kp UP                &kp J        &kp F            &kp U         &kp P    &kp SEMI  &kp BSPC
-&kp LSHFT  &kp A  &kp S  &kp H      &kp T        &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp Y        &kp N            &kp E         &kp O    &kp I     &kp SQT
-&kp LCTRL  &kp Z  &kp X  &kp M      &kp C        &kp V      &kp SPACE              &kp DOWN              &kp K        &kp L            &kp COMMA     &kp DOT  &kp FSLH  &kp LGUI
-                         &lt 4 ESC  &lt 1 SPACE  &lt 2 TAB                                               &lt 6 ENTER  &lt 5 BACKSPACE  &lt 7 DELETE
+&kp TAB    &kp Q  &kp D  &kp R      &kp W      &kp B                               &kp UP                &kp J        &kp F            &kp U         &kp P    &kp SEMI  &kp BSPC
+&kp LSHFT  &kp A  &kp S  &kp H      &kp T      &kp G                     &kp LEFT  &kp ENTER  &kp RIGHT  &kp Y        &kp N            &kp E         &kp O    &kp I     &kp SQT
+&kp LCTRL  &kp Z  &kp X  &kp M      &kp C      &kp V        &kp SPACE              &kp DOWN              &kp K        &kp L            &kp COMMA     &kp DOT  &kp FSLH  &kp LGUI
+                         &lt 4 ESC  &lt 1 TAB  &lt 2 SPACE                                               &lt 6 ENTER  &lt 5 BACKSPACE  &lt 7 DELETE
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
@@ -118,7 +118,7 @@
         mouse_layer {
             display-name = "MOUSE";
             bindings = <
-&trans  &trans    &trans    &trans     &trans     &trans                            &mmv MOVE_UP                     &kp K_REDO  &kp K_PASTE     &kp K_COPY      &kp K_CUT     &kp K_UNDO       &kp BSPC
+&tog 8  &trans    &trans    &trans     &trans     &trans                            &mmv MOVE_UP                     &kp K_REDO  &kp K_PASTE     &kp K_COPY      &kp K_CUT     &kp K_UNDO       &kp BSPC
 &trans  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &trans            &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &trans      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
 &trans  &trans    &trans    &trans     &trans     &trans  &trans                    &mmv MOVE_DOWN                   &trans      &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &trans
                             &trans     &trans     &trans                                                             &mkp RCLK   &mkp LCLK       &mkp MCLK
@@ -177,13 +177,22 @@
         fun_layer {
             display-name = "FUN";
             bindings = <
-&trans          &kp F12  &kp F7  &kp F8     &kp F9     &kp PSCRN                                  &mmv MOVE_UP                     &trans  &trans     &trans     &trans    &trans    &trans
-&trans          &kp F11  &kp F4  &kp F5     &kp F6     &kp SLCK                   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &trans  &kp RSHFT  &kp RCTRL  &kp LALT  &kp RGUI  &trans
-&studio_unlock  &kp F10  &kp F1  &kp F2     &kp F3     &kp PAUSE_BREAK  &trans                    &mmv MOVE_DOWN                   &trans  &trans     &trans     &trans    &trans    &trans
-                                 &kp K_APP  &kp SPACE  &kp TAB                                                                     &trans  &trans     &trans
+&trans          &kp F12  &kp F7  &kp F8     &kp F9   &kp PSCRN                                  &mmv MOVE_UP                     &trans  &trans     &trans     &trans    &trans    &trans
+&trans          &kp F11  &kp F4  &kp F5     &kp F6   &kp SLCK                   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &trans  &kp RSHFT  &kp RCTRL  &kp LALT  &kp RGUI  &trans
+&studio_unlock  &kp F10  &kp F1  &kp F2     &kp F3   &kp PAUSE_BREAK  &trans                    &mmv MOVE_DOWN                   &trans  &trans     &trans     &trans    &trans    &trans
+                                 &kp K_APP  &kp TAB  &kp SPACE                                                                   &trans  &trans     &trans
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
+        };
+
+        mc {
+            bindings = <
+&kp ESC    &kp T   &kp Q   &kp W    &kp E       &kp N1                       &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&tog 0     &kp F   &kp A   &kp S    &kp D       &kp N2               &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LCTRL  &kp F1  &kp F2  &kp F3   &kp F4      &kp N3     &tog 0            &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                           &kp ESC  &kp LSHIFT  &kp SPACE                                    &trans  &trans  &trans
+            >;
         };
     };
 };
