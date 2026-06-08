@@ -189,8 +189,8 @@
         mc {
             bindings = <
 &kp ESC    &kp T   &kp Q   &kp W    &kp E       &kp N1                       &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&tog 0     &kp F   &kp A   &kp S    &kp D       &kp N2               &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&kp LCTRL  &kp F1  &kp F2  &kp F3   &kp F4      &kp N3     &tog 0            &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&tog 8     &kp F   &kp A   &kp S    &kp D       &kp N2               &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LCTRL  &kp F1  &kp F2  &kp F3   &kp F4      &kp N3     &tog 8            &trans          &trans  &trans  &trans  &trans  &trans  &trans
                            &kp ESC  &kp LSHIFT  &kp SPACE                                    &trans  &trans  &trans
             >;
         };
