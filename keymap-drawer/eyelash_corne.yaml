@@ -406,7 +406,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: WORKMAN, h: toggle}
+  - {t: mc, h: toggle}
   - F
   - A
   - S
@@ -427,7 +427,7 @@ layers:
   - F3
   - F4
   - {t: '3', s: '#'}
-  - {t: WORKMAN, h: toggle}
+  - {t: mc, h: toggle}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
