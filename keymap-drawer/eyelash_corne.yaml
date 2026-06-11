@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: eyelash_corne}
 layers:
   WORKMAN:
-  - $$mdi:keyboard-tab$$
+  - $$mdi:apple-keyboard-control$$
   - Q
   - D
   - R
@@ -13,7 +13,7 @@ layers:
   - U
   - P
   - {t: ;, s: ':'}
-  - {t: '$$mdi:backspace$$', type: backspace}
+  - $$mdi:keyboard-tab$$
   - LWIN
   - A
   - S
