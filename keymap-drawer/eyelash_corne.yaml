@@ -16,9 +16,9 @@ layers:
   - $$mdi:keyboard-tab$$
   - LWIN
   - A
-  - S
-  - H
-  - T
+  - {t: S, h: '$$mdi:apple-keyboard-option$$'}
+  - {t: H, h: '$$mdi:apple-keyboard-control$$'}
+  - {t: T, h: '$$mdi:apple-keyboard-shift$$'}
   - G
   - $$mdi:arrow-left-bold$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -44,8 +44,8 @@ layers:
   - {t: /, s: '?'}
   - $$mdi:apple-keyboard-control$$
   - {t: '$$mdi:keyboard-esc$$', h: MEDIA}
-  - {t: '$$mdi:keyboard-tab$$', h: NAV}
-  - {t: '$$mdi:keyboard-space$$', h: MOUSE}
+  - {t: '$$mdi:keyboard-space$$', h: NAV}
+  - {t: '$$mdi:keyboard-tab$$', h: MOUSE}
   - {t: '$$mdi:keyboard-return$$', h: SYM}
   - {t: '$$mdi:backspace$$', h: NUM}
   - {t: '$$mdi:backspace-reverse-outline$$', h: FUN}
