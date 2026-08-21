@@ -6,6 +6,7 @@
 #include <behaviors/runtime-sensor-rotate.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
@@ -320,6 +321,19 @@
             timeout-ms = <50>;
         };
 
+        // ---- bluetooth ----------------------------------------------------
+
+        // Nuclear: forgets every host bond. Deliberately a two-key chord at
+        // opposite ends of the BT row, and only while the MEDIA layer is
+        // held, so no stray thumb can ever reach it again.
+
+        bt_clr_all {
+            bindings = <&bt BT_CLR_ALL>;
+            key-positions = <36 41>;        // BT_SEL 0 + BT_CLR
+            layers = <4>;
+            timeout-ms = <50>;
+        };
+
         // ---- TAGS layer ---------------------------------------------------
 
         tags_layer_hold {
@@ -402,14 +416,18 @@
 
         // ===================================================================
         // LAYER 4: MEDIA
+        //   bottom row  = BT profile 0..4, then BT_CLR (drop this profile)
+        //   top right   = OUT_TOG   (flip USB <-> BLE)
+        //   row 1 outer = OUT_BLE   (force wireless -- USB recovery escape)
+        //   BT_CLR_ALL is the <36 41> chord on this layer, nothing else.
         // ===================================================================
 
         media_layer {
             display-name = "MEDIA";
             bindings = <
-&trans  &trans    &trans    &trans     &trans     &trans                            &mmv MOVE_UP                     &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF    &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &trans
-&trans  &sk LGUI  &sk LALT  &sk LCTRL  &sk LSHFT  &trans            &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &rgb_ug RGB_OFF  &kp C_PREV       &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT       &kp K_MUTE
-&trans  &trans    &trans    &trans     &trans     &trans  &trans                    &mmv MOVE_DOWN                   &bt BT_NXT       &bt BT_CLR_ALL   &bt BT_SEL 1       &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4
+&trans  &trans    &trans    &trans     &trans     &trans                            &mmv MOVE_UP                     &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF    &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &out OUT_TOG
+&trans  &sk LGUI  &sk LALT  &sk LCTRL  &sk LSHFT  &trans            &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &out OUT_BLE     &kp C_PREV       &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT       &kp K_MUTE
+&trans  &trans    &trans    &trans     &trans     &trans  &trans                    &mmv MOVE_DOWN                   &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2       &bt BT_SEL 3     &bt BT_SEL 4     &bt BT_CLR
                             &trans     &trans     &trans                                                             &kp C_STOP       &kp C_PP         &kp C_MUTE
             >;
 
