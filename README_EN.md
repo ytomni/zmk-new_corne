@@ -10,6 +10,59 @@
 If you need a 3D model of this keyboard, email `380465425@qq.com`.
 2025.8.22 update the soft off.When you press the keys Q, S and Z simultaneously and hold them for 2 seconds, the keyboard will enter a deep sleep state and cannot be awakened by pressing the keys. This function can be used when carrying it outside. The activation method is to press the reset switch once.This month, I also updated the ultra-thin versions of the corne and sofle cases. The frame and base plate have been thickened, and the opening of the reset switch has been adjusted, so that the reset switch can be easily pressed. At present, we are still conceptualizing how to design the shell with an inclined bracket.If you have carefully examined a PCB, you will notice that there are reserved interfaces for expansion IO. I wonder if anyone has been able to utilize them,I will try it！
 
+## Fork changes
+
+This fork diverges from upstream in ways that affect **how the firmware is
+built**, not just which keys do what. Read this before building.
+
+### nice!view screens run nice-view-gem
+
+Both halves use [nice-view-gem](https://github.com/M165437/nice-view-gem)
+in place of ZMK's stock `nice_view` status screen.
+
+| File | Change |
+| --- | --- |
+| `config/west.yml` | adds the `M165437` remote, pins `nice-view-gem` to `v0.3.0` |
+| `build.yaml` | shield is `nice_view_gem` on both halves |
+| `config/eyelash_corne.conf` | sets `CONFIG_ZMK_DISPLAY=y` |
+
+Three things that are easy to get wrong:
+
+1. **Keep the revisions in step.** `nice-view-gem` is pinned to `v0.3.0` to
+   match the ZMK v0.3 base in `west.yml`. Upstream is explicit that ZMK and
+   the module must be on matching revisions. The module's `main` branch
+   targets Zephyr 4.1+ and will not work here.
+2. **`nice_view_adapter` is not needed**, despite what nice-view-gem's
+   README shows in its Kyria example. That adapter exists to synthesize a
+   `nice_view_spi` node for shields wired to the nice!oled header. This
+   shield already defines one (`eyelash_corne.dtsi`), and gem's overlay is
+   identical to stock `nice_view`'s, so it binds directly.
+3. **`CONFIG_ZMK_DISPLAY=y` has to be set in the config.** No shield turns
+   it on -- not this one, and not stock `nice_view` either. Without it both
+   screens stay dark whichever display shield you pick.
+
+Gem's tunables (animation, WPM gauge range, inversion) sit commented at
+their defaults in `config/eyelash_corne.conf`.
+
+To return to stock: set the shield back to `nice_view` in `build.yaml` and
+drop the `nice-view-gem` project from `west.yml`.
+
+### Keymap
+
+- Thumb keys use a guarded layer-tap (`ltq`) rather than the stock `&lt`,
+  with `quick-tap-ms` and `require-prior-idle-ms` set, so a thumb held
+  slightly long mid-word can no longer swap in a layer under your fingers.
+- The left mod row on the NAV / MOUSE / MEDIA layers uses sticky mods
+  (`&sk`) instead of held ones, so a stray press cannot latch a modifier
+  across a run of keystrokes.
+- `&bt BT_CLR_ALL` is **not** a plain key. It is a two-key chord
+  (positions `36` + `41`) restricted to the MEDIA layer, because as a
+  single key it sits under a letter and wipes every host bond by accident.
+  The MEDIA bottom row is `BT_SEL 0`--`4` plus `BT_CLR`; note that
+  `BT_SEL` is **0-indexed**, so a keymap without profile `0` leaves you
+  stranded after a clear. `&out OUT_TOG` and `&out OUT_BLE` are on the
+  same layer for USB/BLE endpoint control.
+
 ## Instructions
 
 1. [Fork this repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository).

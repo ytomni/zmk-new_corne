@@ -9,6 +9,11 @@
 
 如果您需要该键盘的 3D 模型，请发送电子邮件至 `380465425@qq.com`。
 
+## 本分支的改动
+
+本分支改用 [nice-view-gem](https://github.com/M165437/nice-view-gem) 驱动 nice!view 屏幕，并调整了键位映射的安全设置。
+详细说明请见 [README_EN.md](README_EN.md#fork-changes)。
+
 ## 使用说明
 
 1. [叉取此仓库](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository)。
