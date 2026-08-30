@@ -444,12 +444,11 @@ layers:
 combos:
 - p: [1, 15, 29]
   k: '&soft_off'
-- p: [17, 23]
+- p: [33, 36]
   k: $$mdi:alpha-w-box$$
+  l: [WORKMAN]
 - p: [14, 26]
   k: Gui+;
-- p: [15, 25]
-  k: '&m_bar'
 - p: [29, 40]
   k: '&m_kill'
 - p: [43, 46]
