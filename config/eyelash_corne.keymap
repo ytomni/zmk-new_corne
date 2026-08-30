@@ -300,7 +300,8 @@
 
         capsword {
             bindings = <&caps_word>;
-            key-positions = <17 23>;        // T + N (both index home)
+            key-positions = <33 36>;        // V + K (both index, bottom row)
+            layers = <0>;                   // typing helper -- base only
             timeout-ms = <28>;
             require-prior-idle-ms = <200>;
         };
@@ -315,13 +316,6 @@
         };
 
         // ---- dwm shortcuts via combo --------------------------------------
-
-        dwm_togglebar {
-            bindings = <&m_bar>;
-            key-positions = <15 25>;        // S + O (both ring home)
-            timeout-ms = <28>;
-            require-prior-idle-ms = <200>;
-        };
 
         dwm_killwin {
             bindings = <&m_kill>;
