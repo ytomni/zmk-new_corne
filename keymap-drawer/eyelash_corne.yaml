@@ -449,12 +449,5 @@ combos:
   l: [WORKMAN]
 - p: [14, 26]
   k: Gui+;
-- p: [29, 40]
-  k: '&m_kill'
-- p: [43, 46]
-  k: '&m_full'
-- p: [36, 41]
-  k: BT CLR ALL
-  l: [MEDIA]
 - p: [18, 22]
   k: TAGS
