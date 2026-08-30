@@ -32,14 +32,16 @@ always matches `config/eyelash_corne.keymap` — never edit the SVG by hand.
 
 | Keys | Does |
 | --- | --- |
-| `T` + `N` | caps word |
+| `V` + `K` | caps word (base layer only) |
 | `A` + `I` | Vicinae toggle (`Gui+;`) |
-| `S` + `O` | dwm toggle bar |
-| `Z` + `/` | dwm kill window |
-| both inner thumbs | dwm fullscreen |
 | `G` + `Y` | hold `TAGS` layer |
 | `Q` + `S` + `Z`, held 2s | soft off — wake with a **single** reset press |
-| `36` + `41`, on `MEDIA` only | `BT_CLR_ALL` (see below) |
+
+Combo pairs are chosen to avoid common English bigrams, which matters at
+speed: caps word sat on `T` + `N` until `"nt"` (want, point, into, count)
+made it misfire. `"vk"` does not occur in English. All of them also carry
+`require-prior-idle-ms = 200`, so no combo can fire during a typing burst —
+only after a deliberate pause.
 
 ### Bluetooth
 
@@ -52,9 +54,10 @@ Two things worth knowing, both learned the hard way:
 - **`&bt BT_SEL` is 0-indexed.** A keymap that binds profiles `1`–`4` has no key
   for profile `0` — and `BT_CLR_ALL` resets the active profile to exactly that
   one, so clearing your bonds strands you on the profile you cannot select.
-- **`BT_CLR_ALL` is a chord, not a key.** It needs positions `36` + `41` pressed
-  together while `MEDIA` is held. As a plain key it sits under a letter, one
-  stray thumb away from wiping every host bond.
+- **`BT_CLR_ALL` is not bound at all.** It used to sit under a letter on the
+  `MEDIA` layer, one stray thumb away from wiping every host bond, which is
+  exactly what happened once. `BT_CLR` drops a single profile if one goes bad;
+  to wipe everything, flash the `settings_reset` firmware deliberately.
 
 Bonds live in the settings partition and **survive a normal `.uf2` flash**, so
 you can iterate on the keymap without re-pairing. Only the `settings_reset`

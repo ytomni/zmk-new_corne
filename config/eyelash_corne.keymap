@@ -315,34 +315,6 @@
             require-prior-idle-ms = <200>;
         };
 
-        // ---- dwm shortcuts via combo --------------------------------------
-
-        dwm_killwin {
-            bindings = <&m_kill>;
-            key-positions = <29 40>;        // Z + /
-            timeout-ms = <28>;
-            require-prior-idle-ms = <200>;
-        };
-
-        dwm_fullscr {
-            bindings = <&m_full>;
-            key-positions = <43 46>;        // both inner thumbs
-            timeout-ms = <50>;
-        };
-
-        // ---- bluetooth ----------------------------------------------------
-
-        // Nuclear: forgets every host bond. Deliberately a two-key chord at
-        // opposite ends of the BT row, and only while the MEDIA layer is
-        // held, so no stray thumb can ever reach it again.
-
-        bt_clr_all {
-            bindings = <&bt BT_CLR_ALL>;
-            key-positions = <36 41>;        // BT_SEL 0 + BT_CLR
-            layers = <4>;
-            timeout-ms = <50>;
-        };
-
         // ---- TAGS layer ---------------------------------------------------
 
         tags_layer_hold {
@@ -428,7 +400,8 @@
         //   bottom row  = BT profile 0..4, then BT_CLR (drop this profile)
         //   top right   = OUT_TOG   (flip USB <-> BLE)
         //   row 1 outer = OUT_BLE   (force wireless -- USB recovery escape)
-        //   BT_CLR_ALL is the <36 41> chord on this layer, nothing else.
+        //   BT_CLR_ALL is deliberately unbound -- use the settings_reset
+        //   firmware if every bond really has to go.
         // ===================================================================
 
         media_layer {
